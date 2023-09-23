@@ -10,7 +10,7 @@ class Hurricane:
         for i in range(10): ##CHANGE NUMBER
             file = "rec."
             file[3] = i
-            f = open(file + ".kml", 'r')
+            f = open("Hurricane KML files\" + file + ".kml", 'r')
             for k in range(242):## CHANGE NUMBER
                 text = f.readline()
                 if k == 241: ## CHANGE NUMBER
