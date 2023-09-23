@@ -18,10 +18,12 @@ def display(actualList, advList, fname):
     actualLineStyle = "<Style id=\"" + "actual" + "Line\"> \n  <LineStyle>\n    <color>" + "ff00ff00" + "</color>\n         " + "<width>3</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
     f.write(actualPin)
     f.write(projPin)
+    f.write(advLineStyle)
+    f.write(actualLineStyle)
 
     while i < len(actualList):
             
-            f.write("<Placemark>\n         <name>"+ actualList[i] +" (Facility)</name>\n")
+            f.write("<Placemark>\n         <name> Actual Track "+ str(i) +"</name>\n")
             f.write("      <styleUrl>#facilityPins</styleUrl>\n")
             f.write("         <Point>\n")
             f.write("           <coordinates>"+ str(actualList[facIndex][1]/-100) + "," + str(actualList[facIndex][0]/100)+ ",0</coordinates>\n")
