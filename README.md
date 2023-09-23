@@ -1,2 +1,2 @@
 # Hurricane-Risk-Assessment
-A project to develop a hurricane risk map for HackUIowa 2023
+Project to assist in assessing the efficacy of hurricane forecasting and projections, with the hope that we will improve future models for HackUIowa 2023
