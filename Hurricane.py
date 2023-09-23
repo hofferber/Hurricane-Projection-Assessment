@@ -1,8 +1,6 @@
 import re
 
 class Hurricane:
-    risk = 0.0
-    windspeed = 0
     recordedPos = []
     projectedPos = []
 
