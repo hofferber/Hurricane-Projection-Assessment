@@ -1,4 +1,5 @@
 # Program to export data to KML file for visualization
+from Hurricane import Hurricane
 
 def kmlexport(_actualList, _advList, _fname):
     actualList = _actualList
@@ -76,5 +77,6 @@ def display(actualList, advList, fname):
     f.write("\n\n    </Document>\n</kml>")
     return None
 
-
-kmlexport()
+p1 = Hurricane 
+p1.dataPointExtraction()
+kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
