@@ -4,6 +4,8 @@ def kmlexport():
     actualList = []
     advList = []
     fname = "hurricane.kml"
+    display(actualList, advList, fname)
+    return None
 
 
 def display(actualList, advList, fname):
