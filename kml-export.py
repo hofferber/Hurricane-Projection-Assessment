@@ -5,19 +5,6 @@ def kmlexport():
     advList = []
 
 
-def createLineStyle(colourSel, adv):
-    colours = ["ff0000ff", "ff00ffff", "ffff0000", "ff00ff00", "ff800080", "ff0080ff", "ff336699", "ffff00ff"]
-    width = "<width>3</width>"
-    facCity = "".join(facCity.split())
-    
-    if colourSel >= len(colours):
-        colourSel = colourSel%len(colours)
-    
-    lineStyle = "<Style id=\"" + adv + "Line\"> \n  <LineStyle>\n    <color>" + colours[colourSel] + "</color>\n         " + width + "\n </LineStyle>\n   </Style>\n\n\n"
-    if colourSel == len(colours):
-        colourSel = 0
-    return lineStyle
-
 def display(actualList, advList, fname):
     f = open(fname, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
@@ -28,7 +15,7 @@ def display(actualList, advList, fname):
     actualPin = "<Style id=\"facilityPins\"> \n  <IconStyle>\n    <scale>1.5</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
     projPin = "<Style id=\"satPins\"> \n  <IconStyle>\n    <scale>0.75</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/blu-blank.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
     advLineStyle = "<Style id=\"" + "adv" + "Line\"> \n  <LineStyle>\n    <color>" + "ff0000ff" + "</color>\n         " + "<width>2</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
-    actualLineStyle = "<Style id=\"" + "actual" + "Line\"> \n  <LineStyle>\n    <color>" + "ff0000ff" + "</color>\n         " + "<width>3</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
+    actualLineStyle = "<Style id=\"" + "actual" + "Line\"> \n  <LineStyle>\n    <color>" + "ff00ff00" + "</color>\n         " + "<width>3</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
     f.write(actualPin)
     f.write(projPin)
 
