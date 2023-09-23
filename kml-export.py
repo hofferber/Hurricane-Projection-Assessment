@@ -2,10 +2,10 @@
 
 def kmlexport():
     coordList = []
-    
+    advList = []
 
 
-def createLineStyle(colourSel,facCity):
+def createLineStyle(colourSel, adv):
     colours = ["ff0000ff", "ff00ffff", "ffff0000", "ff00ff00", "ff800080", "ff0080ff", "ff336699", "ffff00ff"]
     width = "<width>3</width>"
     facCity = "".join(facCity.split())
@@ -13,12 +13,12 @@ def createLineStyle(colourSel,facCity):
     if colourSel >= len(colours):
         colourSel = colourSel%len(colours)
     
-    lineStyle = "<Style id=\"" + facCity + "Line\"> \n  <LineStyle>\n    <color>" + colours[colourSel] + "</color>\n         " + width + "\n </LineStyle>\n   </Style>\n\n\n"
+    lineStyle = "<Style id=\"" + adv + "Line\"> \n  <LineStyle>\n    <color>" + colours[colourSel] + "</color>\n         " + width + "\n </LineStyle>\n   </Style>\n\n\n"
     if colourSel == len(colours):
         colourSel = 0
     return lineStyle
 
-def display(facilities, cityList, distanceList, coordList, fname):
+def display(coordlist, advList, fname):
     f = open(fname, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     f.write("<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n    <Document>\n")
