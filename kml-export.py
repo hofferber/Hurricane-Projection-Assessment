@@ -1,7 +1,7 @@
 # Program to export data to KML file for visualization
 
 def kmlexport():
-    coordList = []
+    actualList = []
     advList = []
 
 
@@ -18,31 +18,26 @@ def createLineStyle(colourSel, adv):
         colourSel = 0
     return lineStyle
 
-def display(coordlist, advList, fname):
+def display(actualList, advList, fname):
     f = open(fname, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     f.write("<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n    <Document>\n")
     f.write("    <name>"+ fname +"</name>\n\n\n")
-    facilityPin = ""
-    satPin = ""
-    facilityPin = "<Style id=\"facilityPins\"> \n  <IconStyle>\n    <scale>1.5</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
-    satPin = "<Style id=\"satPins\"> \n  <IconStyle>\n    <scale>0.75</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/blu-blank.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
-    colourSel = 0
-    i = 0
-    lineStyles = []
-    f.write(facilityPin)
-    f.write(satPin)
+    actualPin = ""
+    projPin = ""
+    actualPin = "<Style id=\"facilityPins\"> \n  <IconStyle>\n    <scale>1.5</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/ylw-stars.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
+    projPin = "<Style id=\"satPins\"> \n  <IconStyle>\n    <scale>0.75</scale>\n    <Icon>\n   <href>http://maps.google.com/mapfiles/kml/paddle/blu-blank.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
+    advLineStyle = "<Style id=\"" + "adv" + "Line\"> \n  <LineStyle>\n    <color>" + "ff0000ff" + "</color>\n         " + "<width>2</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
+    actualLineStyle = "<Style id=\"" + "actual" + "Line\"> \n  <LineStyle>\n    <color>" + "ff0000ff" + "</color>\n         " + "<width>3</width>" + "\n </LineStyle>\n   </Style>\n\n\n"
+    f.write(actualPin)
+    f.write(projPin)
 
-    while i < len(facilities):
-            lineStyles.append(createLineStyle(i, facilities[i]))
-            facLineStyleName = "".join(facilities[i].split())
-            facIndex = cityList.index(facilities[i])
-            nearCities = []
-            nearCities = nearestCities(facilities[i], facilities, cityList, distanceList)
-            f.write("<Placemark>\n         <name>"+ facilities[i] +" (Facility)</name>\n")
+    while i < len(actualList):
+            
+            f.write("<Placemark>\n         <name>"+ actualList[i] +" (Facility)</name>\n")
             f.write("      <styleUrl>#facilityPins</styleUrl>\n")
             f.write("         <Point>\n")
-            f.write("           <coordinates>"+ str(coordList[facIndex][1]/-100) + "," + str(coordList[facIndex][0]/100)+ ",0</coordinates>\n")
+            f.write("           <coordinates>"+ str(actualList[facIndex][1]/-100) + "," + str(actualList[facIndex][0]/100)+ ",0</coordinates>\n")
             f.write("         </Point>\n       </Placemark>\n\n")
             f.write(lineStyles[i])
             for n in nearCities:
@@ -52,7 +47,7 @@ def display(coordlist, advList, fname):
                 f.write("<Placemark>\n         <name>"+ str(cityList[satIndex]) +"</name>\n")
                 f.write("      <styleUrl>#satPins</styleUrl>\n")
                 f.write("         <Point>\n")
-                f.write("           <coordinates>"+ str(coordList[satIndex][1]/-100) + "," + str(coordList[satIndex][0]/100)+ ",0</coordinates>\n")
+                f.write("           <coordinates>"+ str(actualList[satIndex][1]/-100) + "," + str(actualList[satIndex][0]/100)+ ",0</coordinates>\n")
                 f.write("         </Point>\n       </Placemark>\n\n")
 
                 f.write("\n<Placemark>\n")
@@ -60,7 +55,7 @@ def display(coordlist, advList, fname):
                 f.write("      <LineString>\n")
                 f.write("         <extrude>1</extrude>\n")
                 f.write("         <tessellate>1</tessellate>\n")
-                f.write("           <coordinates>"+ str(coordList[satIndex][1]/-100) + "," + str(coordList[satIndex][0]/100)+ ",0  "+ str(coordList[facIndex][1]/-100) + "," + str(coordList[facIndex][0]/100)+ ",0</coordinates>\n")
+                f.write("           <coordinates>"+ str(actualList[satIndex][1]/-100) + "," + str(actualList[satIndex][0]/100)+ ",0  "+ str(actualList[facIndex][1]/-100) + "," + str(actualList[facIndex][0]/100)+ ",0</coordinates>\n")
                 f.write("         </LineString>\n       </Placemark>\n\n")
 
             i += 1
