@@ -39,7 +39,7 @@ def display(actualList, advList, fname):
             f.write("           <coordinates>"+ str(actualList[i])+ ",0</coordinates>\n")
             f.write("         </Point>\n       </Placemark>\n\n")
            
-            f.write("<Placemark>\n         <name> 120 Hour Projection for "+ str(i) +"</name>\n")
+            f.write("<Placemark>\n         <name> 120 Hour Projection from "+ str(i) +"</name>\n")
             f.write("      <styleUrl>#projPin</styleUrl>\n")
             f.write("         <Point>\n")
             f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
