@@ -1,4 +1,5 @@
 import re
+import math
 
 class Hurricane:
     recordedPos = []
