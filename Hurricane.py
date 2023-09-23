@@ -5,8 +5,8 @@ class Hurricane:
     projectedPos = []
 
     def dataPointExtraction():
-        for i in range(3):  ##CHANGE NUMBER
-            file = "rec" + str(i)
+        for i in range(1,49,2):  ##CHANGE NUMBER
+            file = "adv" + str(i)
             f = open("HurricaneKMLfiles/" + file + ".kml", 'r')
             for k in range(242):  ## CHANGE NUMBER
                 text = f.readline()
