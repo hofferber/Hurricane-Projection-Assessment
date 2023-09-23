@@ -55,7 +55,7 @@ def display(actualList, advList, fname):
             f.write("      <LineString>\n")
             f.write("         <extrude>1</extrude>\n")
             f.write("         <tessellate>1</tessellate>\n")
-            f.write("           <coordinates>"+ str(actualList[i]) ",0  "+ str(advList[i])+ ",0</coordinates>\n")
+            f.write("           <coordinates>"+ str(actualList[i]) + ",0  " + str(advList[i]) + ",0</coordinates>\n")
             f.write("         </LineString>\n       </Placemark>\n\n")
             
             if len(actualList) > i+10:
@@ -64,7 +64,7 @@ def display(actualList, advList, fname):
                 f.write("      <LineString>\n")
                 f.write("         <extrude>1</extrude>\n")
                 f.write("         <tessellate>1</tessellate>\n")
-                f.write("           <coordinates>"+ str(actualList[i+10]) ",0  "+ str(advList[i])+ ",0</coordinates>\n")
+                f.write("           <coordinates>"+ str(actualList[i+10]) + ",0  "+ str(advList[i])+ ",0</coordinates>\n")
                 f.write("         </LineString>\n       </Placemark>\n\n")
 
             i += 1
