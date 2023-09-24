@@ -1,11 +1,12 @@
 import re
 import math
+import os
 
 class Hurricane:
     recordedPos = []
     projectedPos = []
 
-        def dataPointExtraction(nameOfHurricane):
+    def dataPointExtraction(nameOfHurricane):
         path = os.path.expanduser("HurricaneKMLfiles\Hurricane_" + nameOfHurricane)
         files = os.listdir(path)
         for f in files:
