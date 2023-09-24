@@ -51,17 +51,6 @@ def display(actualList, advList, hurri, fname):
             f.write("         <Point>\n")
             f.write("           <coordinates>"+ str(actualList[i])+ ",0</coordinates>\n")
             f.write("         </Point>\n       </Placemark>\n\n")
-           
-            f.write("<Placemark>\n         <name> 120 Hour Projection from "+ str(i) +"</name>\n")
-            f.write("      <styleUrl>#projPin</styleUrl>\n")
-            try:  
-                f.write(description("\"Distance to Acutal from Estimate (Km)\"", int(hurri.distList[i])))
-            except IndexError:
-                 #print("CheckFail")
-                 pass
-            f.write("         <Point>\n")
-            f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
-            f.write("         </Point>\n       </Placemark>\n\n")
 
             if len(actualList) > i + 1:
                 f.write("\n<Placemark>\n")
@@ -80,7 +69,7 @@ def display(actualList, advList, hurri, fname):
             # f.write("           <coordinates>"+ str(actualList[i]) + ",0  " + str(advList[i]) + ",0</coordinates>\n")
             # f.write("         </LineString>\n       </Placemark>\n\n")
             
-            if len(actualList) > i+11:
+            if len(actualList) > i+10:
                 f.write("\n<Placemark>\n")
                 f.write("      <styleUrl>#compLine</styleUrl>\n")
                 f.write("      <LineString>\n")
@@ -88,6 +77,17 @@ def display(actualList, advList, hurri, fname):
                 f.write("         <tessellate>1</tessellate>\n")
                 f.write("           <coordinates>"+ str(actualList[i+10]) + ",0  "+ str(advList[i])+ ",0</coordinates>\n")
                 f.write("         </LineString>\n       </Placemark>\n\n")
+
+                f.write("<Placemark>\n         <name> 120 Hour Projection from "+ str(i) +"</name>\n")
+                f.write("      <styleUrl>#projPin</styleUrl>\n")
+                try:  
+                    f.write(description("\"Distance to Acutal from Estimate (Km)\"", int(hurri.distList[i])))
+                except IndexError:
+                    #print("CheckFail")
+                    pass
+                f.write("         <Point>\n")
+                f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
+                f.write("         </Point>\n       </Placemark>\n\n")
             
             i += 1
     
