@@ -8,7 +8,17 @@ def kmlexport(_actualList, _advList, _fname):
     display(actualList, advList, fname)
     return None
 
-
+def description(title, val):
+    descriptor = "  <ExtendedData>\n"
+    for i in range(len(title)):
+        
+        descriptor = descriptor+"       <Data name="+title[i]+">\n"
+        descriptor = descriptor+"           <value>"+str(val[i])+"</value>\n"
+        descriptor = descriptor+"       </Data>\n"
+    
+    descriptor = descriptor+"  </ExtendedData>\n"
+    return descriptor
+     
 def display(actualList, advList, fname):
     f = open(fname, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
@@ -77,6 +87,7 @@ def display(actualList, advList, fname):
     f.write("\n\n    </Document>\n</kml>")
     return None
 
-p1 = Hurricane 
-p1.dataPointExtraction()
-kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
+print(description(["test1", "test2", "test3"], [1, 2, 3]))
+#p1 = Hurricane 
+#p1.dataPointExtraction()
+#kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
