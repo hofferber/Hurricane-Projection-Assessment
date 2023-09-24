@@ -87,7 +87,7 @@ def display(actualList, advList, fname):
     f.write("\n\n    </Document>\n</kml>")
     return None
 
-print(description(["test1", "test2", "test3"], [1, 2, 3]))
-#p1 = Hurricane 
-#p1.dataPointExtraction()
-#kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
+#print(description(["test1", "test2", "test3"], [1, 2, 3]))
+p1 = Hurricane 
+p1.dataPointExtraction()
+kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
