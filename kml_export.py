@@ -88,6 +88,6 @@ def display(actualList, advList, fname):
     return None
 
 #print(description(["test1", "test2", "test3"], [1, 2, 3]))
-p1 = Hurricane 
-p1.dataPointExtraction()
-kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
+# p1 = Hurricane 
+# p1.dataPointExtraction()
+# kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
