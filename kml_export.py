@@ -4,9 +4,9 @@ from Hurricane import Hurricane
 def kmlexport(_actualList, _advList, _hurri, _fname):
     actualList = _actualList
     advList = _advList
-    fname = _fname
+    path = _fname
     hurri = _hurri
-    display(actualList, advList, hurri, fname + ".kml")
+    display(actualList, advList, hurri, path + ".kml")
     return None
 
 def description(title, val):
@@ -18,8 +18,8 @@ def description(title, val):
     descriptor = descriptor+"  </ExtendedData>\n"
     return descriptor
      
-def display(actualList, advList, hurri, fname):
-    f = open(fname, "x")
+def display(actualList, advList, hurri, path):
+    f = open(path, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     f.write("<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n    <Document>\n")
     f.write("    <name>"+ fname +"</name>\n\n\n")
