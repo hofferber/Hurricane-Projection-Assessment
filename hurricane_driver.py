@@ -6,15 +6,30 @@ def main():
     hurricaneList = []
     
     Calvin = Hurricane
+    Calvin.dataPointExtraction(str(Calvin))
+    Calvin.distanceInaccuracy()
+    kmlexport(Calvin.recordedPos, Calvin.projectedPos, Calvin, "Calvin")
     Don = Hurricane
+    Don.dataPointExtraction(str(Don))
+    Don.distanceInaccuracy()
+    kmlexport(Don.recordedPos, Don.projectedPos, Don, "Don")
     Dora = Hurricane
-    Franklin = Hurricane 
+    Dora.dataPointExtraction(str(Dora))
+    Dora.distanceInaccuracy()
+    kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
+    Franklin = Hurricane
+    Franklin.dataPointExtraction(str(Franklin))
+    Franklin.distanceInaccuracy()
+    kmlexport(Franklin.recordedPos, Franklin.projectedPos, Franklin, "Franklin")
     Lee = Hurricane
+    Lee.dataPointExtraction(str(Lee))
+    Lee.distanceInaccuracy()
+    kmlexport(Lee.recordedPos, Lee.projectedPos, Lee, "Lee")
     Margot = Hurricane
-    hurricaneList = [Calvin, Don, Dora, Franklin, Lee, Margot]
-    for i in hurricaneList:
-        i.dataPointExtraction(str(i))
-        i.distanceInaccuracy()
-        kmlexport(i.recordedPos, i.projectedPos, i, "Dora")
+    Margot.dataPointExtraction(str(Margot))
+    Margot.distanceInaccuracy()
+    kmlexport(Margot.recordedPos, Margot.projectedPos, Margot, "Margot")
 
     return None
+
+main()
