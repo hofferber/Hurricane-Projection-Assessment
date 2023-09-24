@@ -1,11 +1,12 @@
 # Program to export data to KML file for visualization
 from Hurricane import Hurricane
 
-def kmlexport(_actualList, _advList, _fname):
+def kmlexport(_actualList, _advList, _hurri, _fname):
     actualList = _actualList
     advList = _advList
     fname = _fname
-    display(actualList, advList, fname)
+    hurri = _hurri
+    display(actualList, advList, hurri, fname + ".kml")
     return None
 
 def description(title, val):
@@ -20,7 +21,7 @@ def description(title, val):
     descriptor = descriptor+"  </ExtendedData>\n"
     return descriptor
      
-def display(actualList, advList, fname):
+def display(actualList, advList, hurri, fname):
     f = open(fname, "x")
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     f.write("<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n    <Document>\n")
@@ -53,7 +54,10 @@ def display(actualList, advList, fname):
            
             f.write("<Placemark>\n         <name> 120 Hour Projection from "+ str(i) +"</name>\n")
             f.write("      <styleUrl>#projPin</styleUrl>\n")
-            f.write(description("Distance to Acutal from Estimate", fname.distList[i]))
+            # try:  
+            #     f.write(description("Distance to Acutal from Estimate", hurri.distList[i]))
+            # except IndexError:
+            #      pass
             f.write("         <Point>\n")
             f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
             f.write("         </Point>\n       </Placemark>\n\n")
@@ -89,7 +93,7 @@ def display(actualList, advList, fname):
     f.write("\n\n    </Document>\n</kml>")
     return None
 
-print(description(["test1", "test2", "test3"], [1, 2, 3]))
-#p1 = Hurricane 
-#p1.dataPointExtraction()
-#kmlexport(p1.recordedPos, p1.projectedPos, "hurricane.kml")
+# Dora = Hurricane 
+# Dora.dataPointExtraction("Dora")
+# print(Dora.recordedPos, Dora.projectedPos)
+# kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
