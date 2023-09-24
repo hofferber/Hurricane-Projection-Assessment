@@ -11,10 +11,10 @@ def kmlexport(_actualList, _advList, _fname):
 def description(title, val):
     descriptor = "  <ExtendedData>\n"
     for i in range(len(title)):
-        
-        descriptor = descriptor+"       <Data name="+title[i]+">\n"
-        descriptor = descriptor+"           <value>"+str(val[i])+"</value>\n"
-        descriptor = descriptor+"       </Data>\n"
+        for j in range(len(val)):
+            descriptor = descriptor+"       <Data name="+title[i]+">\n"
+            descriptor = descriptor+"           <value>"+str(val[i][j])+"</value>\n"
+            descriptor = descriptor+"       </Data>\n"
     
     descriptor = descriptor+"  </ExtendedData>\n"
     return descriptor
