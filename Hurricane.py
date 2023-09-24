@@ -6,14 +6,14 @@ class Hurricane:
     recordedPos = []
     projectedPos = []
     distList = []
-    h = 0
-    def dataPointExtraction(nameOfHurricane):
-        path = os.path.expanduser("HurricaneKMLfiles/Hurricane_" + nameOfHurricane)
+
+    def dataPointExtraction(hurriName):
+        path = os.path.expanduser("HurricaneKMLfiles/Hurricane_" + hurriName)
         files = os.listdir(path)
         h = 0
         for f in files:
-            Hurricane.h+=1
-        for i in range(1,Hurricane.h*2,2):
+            h+=1
+        for i in range(1,h*2,2):
             openfile = open(path + "/adv" + str(i) + ".kml", "r")
             k = 0
             for line in openfile:
@@ -23,14 +23,18 @@ class Hurricane:
                     Hurricane.projectedPos.append(re.findall("-\d{2,3}\.\d,-?\d{2,3}\.\d,0 <", line)[0][:-4])
                     continue
 
-    def distanceInaccuracy():
+    def distanceInaccuracy(hurriName):
         def degtorad(deg):
             return deg * (math.pi / 180)
-
+        path = os.path.expanduser("HurricaneKMLfiles/Hurricane_" + hurriName)
+        files = os.listdir(path)
+        h = 0
+        for f in files:
+            h+=1
         distances = 0
         k = 0
         R = 6371 ##Km
-        for i in range(Hurricane.h-10):
+        for i in range(h-10):
             lat1, long1 = float(Hurricane.recordedPos[i+10].split(',')[1]), float(Hurricane.recordedPos[i+10].split(',')[0])
             lat2, long2 = float(Hurricane.projectedPos[i].split(',')[1]), float(Hurricane.projectedPos[i].split(',')[0])
             changeLat = degtorad(lat1 - lat2)
@@ -43,3 +47,9 @@ class Hurricane:
             distances = distances + d
         averageDist = distances / k
         return averageDist ##Km
+
+    def resetClass():
+        Hurricane.recordedPos = []
+        Hurricane.projectedPos = []
+        Hurricane.distList = []
+        return None
