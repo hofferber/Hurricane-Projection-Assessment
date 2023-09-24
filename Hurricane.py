@@ -5,6 +5,7 @@ import os
 class Hurricane:
     recordedPos = []
     projectedPos = []
+    distList = []
 
     def dataPointExtraction(nameOfHurricane):
         path = os.path.expanduser("HurricaneKMLfiles\Hurricane_" + nameOfHurricane)
@@ -35,6 +36,7 @@ class Hurricane:
             c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
             d = R * c
             k = k + 1
+            Hurricane.distList.append(d)
             distances = distances + d
         averageDist = distances / k
         return averageDist ##Km
