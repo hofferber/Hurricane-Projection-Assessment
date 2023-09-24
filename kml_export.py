@@ -26,6 +26,7 @@ def display(actualList, advList, hurri, fname):
     f.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
     f.write("<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n    <Document>\n")
     f.write("    <name>"+ fname +"</name>\n\n\n")
+    f.write("    <description> The average descrepency in this model is " + str(int(hurri.distanceInaccuracy(fname.split(".")[0]))) + " kilometers. </description>\n")
     actualPin = ""
     projPin = ""
     actualPin = "<Style id=\"actualPin\"> \n  <IconStyle>\n    <scale>1.5</scale>\n    <Icon>\n   <href>https://maps.google.com/mapfiles/kml/paddle/red-stars.png</href>\n      </Icon>\n          </IconStyle>\n   </Style>\n\n\n"
