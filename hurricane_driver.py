@@ -4,16 +4,17 @@ from kml_export import kmlexport
 
 def main():
     hurricaneList = []
-    # Replace with reading folder names in HurricaneKMLfiles folder
-    nameList = ["Calvin",  "Don"]
-    # h = 0
-    # for i in nameList:
-    #     i = Hurricane
-    #     hurricaneList[h] = i
-    #     h += 1
-
-    Calvin = Hurricane
-
-    Calvin.dataPointExtraction()
-    kmlexport(Calvin.projectedPos, Calvin.recordedPos, nameList[0])
     
+    Calvin = Hurricane
+    Don = Hurricane
+    Dora = Hurricane
+    Franklin = Hurricane 
+    Lee = Hurricane
+    Margot = Hurricane
+    hurricaneList = [Calvin, Don, Dora, Franklin, Lee, Margot]
+    for i in hurricaneList:
+        i.dataPointExtraction(str(i))
+        i.distanceInaccuracy()
+        kmlexport(i.recordedPos, i.projectedPos, i, "Dora")
+
+    return None

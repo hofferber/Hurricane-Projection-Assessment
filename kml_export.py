@@ -93,9 +93,3 @@ def display(actualList, advList, hurri, fname):
     
     f.write("\n\n    </Document>\n</kml>")
     return None
-
-Dora = Hurricane 
-Dora.dataPointExtraction("Dora")
-Dora.distanceInaccuracy()
-# print(Dora.distList)
-kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
