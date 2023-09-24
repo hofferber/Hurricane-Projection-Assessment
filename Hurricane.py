@@ -5,17 +5,18 @@ class Hurricane:
     recordedPos = []
     projectedPos = []
 
-    def dataPointExtraction():
-        for i in range(1,50,2):  ##CHANGE NUMBER
-            file = "adv" + str(i)
-            f = open("HurricaneKMLfiles/" + file + ".kml", 'r')
-            for k in range(242):  ## CHANGE NUMBER
-                text = f.readline()
-                if k == 241:  ## CHANGE NUMBER
-                    ##REGEX
-                    Hurricane.recordedPos.append(re.findall(">.{12}", text)[0][3:])
-                    Hurricane.projectedPos.append(re.findall(".{13}<", text)[0][:10])
-                    break
+        def dataPointExtraction(nameOfHurricane):
+        path = os.path.expanduser("HurricaneKMLfiles\Hurricane_" + nameOfHurricane)
+        files = os.listdir(path)
+        for f in files:
+            openfile = open(os.path.join(path, f), "r")
+            i = 0
+            for line in openfile:
+                i += 1
+                if i == 242:
+                    Hurricane.recordedPos.append(re.findall(">[ |-]{2,3}\d{2,3}\.\d,-?\d{2,3}\.\d", line)[0][3:])
+                    Hurricane.projectedPos.append(re.findall("-\d{2,3}\.\d,-?\d{2,3}\.\d,0 <", line)[0][:-4])
+                    continue
 
     def distanceInaccuracy():
         def degtorad(deg):
