@@ -6,27 +6,27 @@ def main():
     hurricaneList = []
     
     Calvin = Hurricane
-    Calvin.dataPointExtraction(str(Calvin))
+    Calvin.dataPointExtraction("Calvin")
     Calvin.distanceInaccuracy()
     kmlexport(Calvin.recordedPos, Calvin.projectedPos, Calvin, "Calvin")
     Don = Hurricane
-    Don.dataPointExtraction(str(Don))
+    Don.dataPointExtraction("Don")
     Don.distanceInaccuracy()
     kmlexport(Don.recordedPos, Don.projectedPos, Don, "Don")
     Dora = Hurricane
-    Dora.dataPointExtraction(str(Dora))
+    Dora.dataPointExtraction("Dora")
     Dora.distanceInaccuracy()
     kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
     Franklin = Hurricane
-    Franklin.dataPointExtraction(str(Franklin))
+    Franklin.dataPointExtraction("Franklin")
     Franklin.distanceInaccuracy()
     kmlexport(Franklin.recordedPos, Franklin.projectedPos, Franklin, "Franklin")
     Lee = Hurricane
-    Lee.dataPointExtraction(str(Lee))
+    Lee.dataPointExtraction("Lee")
     Lee.distanceInaccuracy()
     kmlexport(Lee.recordedPos, Lee.projectedPos, Lee, "Lee")
     Margot = Hurricane
-    Margot.dataPointExtraction(str(Margot))
+    Margot.dataPointExtraction("Margot")
     Margot.distanceInaccuracy()
     kmlexport(Margot.recordedPos, Margot.projectedPos, Margot, "Margot")
 
