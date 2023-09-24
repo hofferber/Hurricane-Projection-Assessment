@@ -8,14 +8,17 @@ class Hurricane:
     distList = []
 
     def dataPointExtraction(nameOfHurricane):
-        path = os.path.expanduser("HurricaneKMLfiles/Hurricane_" + nameOfHurricane)
+        path = os.path.expanduser("HurricaneKMLfiles\Hurricane_" + nameOfHurricane)
         files = os.listdir(path)
+        h = 0
         for f in files:
-            openfile = open(os.path.join(path, f), "r")
-            i = 0
+            h+=1
+        for i in range(1,h*2,2):
+            openfile = open(path + "/adv" + str(i) + ".kml", "r")
+            k = 0
             for line in openfile:
-                i += 1
-                if i == 242:
+                k += 1
+                if k == 242:
                     Hurricane.recordedPos.append(re.findall(">[ |-]{2,3}\d{2,3}\.\d,-?\d{2,3}\.\d", line)[0][3:])
                     Hurricane.projectedPos.append(re.findall("-\d{2,3}\.\d,-?\d{2,3}\.\d,0 <", line)[0][:-4])
                     continue
