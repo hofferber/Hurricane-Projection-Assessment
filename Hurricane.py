@@ -8,7 +8,7 @@ class Hurricane:
     distList = []
 
     def dataPointExtraction(nameOfHurricane):
-        path = os.path.expanduser("HurricaneKMLfiles\Hurricane_" + nameOfHurricane)
+        path = os.path.expanduser("HurricaneKMLfiles/Hurricane_" + nameOfHurricane)
         files = os.listdir(path)
         h = 0
         for f in files:

@@ -54,10 +54,10 @@ def display(actualList, advList, hurri, fname):
            
             f.write("<Placemark>\n         <name> 120 Hour Projection from "+ str(i) +"</name>\n")
             f.write("      <styleUrl>#projPin</styleUrl>\n")
-            # try:  
-            #     f.write(description("Distance to Acutal from Estimate", hurri.distList[i]))
-            # except IndexError:
-            #      pass
+            try:  
+                f.write(description("Distance to Acutal from Estimate", hurri.distList[i]))
+            except IndexError:
+                 pass
             f.write("         <Point>\n")
             f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
             f.write("         </Point>\n       </Placemark>\n\n")
@@ -93,7 +93,7 @@ def display(actualList, advList, hurri, fname):
     f.write("\n\n    </Document>\n</kml>")
     return None
 
-# Dora = Hurricane 
-# Dora.dataPointExtraction("Dora")
+Dora = Hurricane 
+Dora.dataPointExtraction("Dora")
 # print(Dora.recordedPos, Dora.projectedPos)
-# kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
+kmlexport(Dora.recordedPos, Dora.projectedPos, Dora, "Dora")
