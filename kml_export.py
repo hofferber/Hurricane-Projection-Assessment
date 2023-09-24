@@ -11,9 +11,6 @@ def kmlexport(_actualList, _advList, _hurri, _fname):
 
 def description(title, val):
     descriptor = "  <ExtendedData>\n"
-    # CHANGE TO LISTS LATER TO SIMPLIFY
-    # for i in range(len(title)):
-    #     for j in range(len(val)):
     descriptor = descriptor+"       <Data name="+title+">\n"
     descriptor = descriptor+"           <value>"+str(val)+"</value>\n"
     descriptor = descriptor+"       </Data>\n"
@@ -84,7 +81,6 @@ def display(actualList, advList, hurri, fname):
                 try:  
                     f.write(description("\"Distance to Acutal from Estimate (Km)\"", int(hurri.distList[i])))
                 except IndexError:
-                    #print("CheckFail")
                     pass
                 f.write("         <Point>\n")
                 f.write("           <coordinates>"+ str(advList[i])+ ",0</coordinates>\n")
